@@ -6,7 +6,7 @@ export async function GET(context) {
   const sortedPosts = blogPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return rss({
-    title: '我的个人博客',
+    title: 'c师傅的小笨博客',
     description: '记录思考，分享知识。',
     site: context.site,
     items: sortedPosts.map((post) => ({
