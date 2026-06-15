@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="标签">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="mb-12 text-center">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">标签</h1>
+      <p class="text-gray-600">所有文章标签</p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <!-- 示例标签，后续可以动态生成 -->
+      <a href="/tag/技术" class="block p-4 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg text-center">
+        <div class="text-2xl font-bold text-gray-900 mb-1">12</div>
+        <div class="text-sm text-gray-700">技术</div>
+      </a>
+      <a href="/tag/投资" class="block p-4 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg text-center">
+        <div class="text-2xl font-bold text-gray-900 mb-1">8</div>
+        <div class="text-sm text-gray-700">投资</div>
+      </a>
+      <a href="/tag/思考" class="block p-4 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg text-center">
+        <div class="text-2xl font-bold text-gray-900 mb-1">15</div>
+        <div class="text-sm text-gray-700">思考</div>
+      </a>
+      <a href="/tag/生活" class="block p-4 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg text-center">
+        <div class="text-2xl font-bold text-gray-900 mb-1">6</div>
+        <div class="text-sm text-gray-700">生活</div>
+      </a>
+      <a href="/tag/学习" class="block p-4 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg text-center">
+        <div class="text-2xl font-bold text-gray-900 mb-1">10</div>
+        <div class="text-sm text-gray-700">学习</div>
+      </a>
+      <a href="/tag/笔记" class="block p-4 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg text-center">
+        <div class="text-2xl font-bold text-gray-900 mb-1">7</div>
+        <div class="text-sm text-gray-700">笔记</div>
+      </a>
+    </div>
+  </div>
+</Layout>
