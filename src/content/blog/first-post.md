@@ -3,6 +3,7 @@ title: '我的第一篇文章'
 description: '这是我的第一篇博客文章，用来测试网站功能。'
 pubDate: 2026-06-15
 author: '我'
+category: '个人记录'
 tags: ['测试', '博客']
 ---
 

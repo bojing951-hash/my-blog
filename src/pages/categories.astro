@@ -1,55 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// 获取所有文章
+const blogPosts = await getCollection('blog');
+
+// 定义分类信息
+const categories = [
+  {
+    slug: '个人记录',
+    name: '个人记录',
+    description: '记录个人成长、生活、随笔',
+    count: blogPosts.filter(post => post.data.category === '个人记录').length
+  },
+  {
+    slug: '交易日志',
+    name: '交易日志',
+    description: '记录交易和复盘',
+    count: blogPosts.filter(post => post.data.category === '交易日志').length
+  },
+  {
+    slug: '投研思考',
+    name: '投研思考',
+    description: '关于投资研究的免费思考和观点',
+    count: blogPosts.filter(post => post.data.category === '投研思考').length
+  }
+];
 ---
 
 <Layout title="分类">
   <div class="max-w-4xl mx-auto px-4 py-8">
     <div class="mb-12 text-center">
       <h1 class="text-3xl font-bold text-gray-900 mb-4">分类</h1>
-      <p class="text-gray-600">文章分类目录</p>
+      <p class="text-gray-600">文章分类目录，共 {blogPosts.length} 篇文章</p>
     </div>
 
     <div class="space-y-6">
-      <!-- 示例分类，后续可以动态生成 -->
-      <a href="/category/技术文章" class="block p-6 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg">
-        <div class="flex justify-between items-center">
-          <div>
-            <h3 class="text-xl font-medium text-gray-900 mb-2">技术文章</h3>
-            <p class="text-gray-600">关于编程、开发、工具等技术相关的内容</p>
+      {categories.map((cat) => (
+        <a href={`/category/${cat.slug}`} class="block p-6 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg">
+          <div class="flex justify-between items-center">
+            <div>
+              <h3 class="text-xl font-medium text-gray-900 mb-2">{cat.name}</h3>
+              <p class="text-gray-600">{cat.description}</p>
+            </div>
+            <div class="text-2xl font-bold text-gray-900">{cat.count}</div>
           </div>
-          <div class="text-2xl font-bold text-gray-900">12</div>
-        </div>
-      </a>
-
-      <a href="/category/投资研究" class="block p-6 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg">
-        <div class="flex justify-between items-center">
-          <div>
-            <h3 class="text-xl font-medium text-gray-900 mb-2">投资研究</h3>
-            <p class="text-gray-600">市场分析、个股研究、投资策略等</p>
-          </div>
-          <div class="text-2xl font-bold text-gray-900">8</div>
-        </div>
-      </a>
-
-      <a href="/category/生活思考" class="block p-6 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg">
-        <div class="flex justify-between items-center">
-          <div>
-            <h3 class="text-xl font-medium text-gray-900 mb-2">生活思考</h3>
-            <p class="text-gray-600">日常生活、个人感悟、哲学思考等</p>
-          </div>
-          <div class="text-2xl font-bold text-gray-900">15</div>
-        </div>
-      </a>
-
-      <a href="/category/学习笔记" class="block p-6 bg-gray-100 hover:bg-gray-200 transition-colors rounded-lg">
-        <div class="flex justify-between items-center">
-          <div>
-            <h3 class="text-xl font-medium text-gray-900 mb-2">学习笔记</h3>
-            <p class="text-gray-600">读书笔记、学习心得、知识整理等</p>
-          </div>
-          <div class="text-2xl font-bold text-gray-900">10</div>
-        </div>
-      </a>
+        </a>
+      ))}
     </div>
   </div>
 </Layout>

@@ -9,6 +9,7 @@ const blogCollection = defineCollection({
     pubDate: z.date(),
     updatedDate: z.date().optional(),
     author: z.string().default('我'),
+    category: z.enum(['个人记录', '交易日志', '投研思考']).optional(),
     tags: z.array(z.string()).optional(),
   }),
 });
