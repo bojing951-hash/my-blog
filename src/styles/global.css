@@ -19,3 +19,18 @@
 }
 
 @import "tailwindcss";
+
+/* 自定义文章排版样式 - 更舒适的阅读体验 */
+.prose.prose-lg p {
+  margin-bottom: 1.5em !important;
+  line-height: 1.8 !important;
+}
+
+.prose.prose-lg ul,
+.prose.prose-lg ol {
+  margin-bottom: 1.5em !important;
+}
+
+.prose.prose-lg li {
+  margin-bottom: 0.5em !important;
+}
